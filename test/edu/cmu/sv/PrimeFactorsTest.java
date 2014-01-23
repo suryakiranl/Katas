@@ -136,4 +136,20 @@ public class PrimeFactorsTest {
 		assertEquals(makeList(13), PrimeFactors.generate(13));
 	}
 	
+	/**
+	 * Unit test to check prime factors of 20
+	 */
+	@Test
+	public void testTwentyOne() {
+		assertEquals(makeList(3,7), PrimeFactors.generate(21));
+	}
+	
+	/**
+	 * Unit test to check prime factors of 31
+	 */
+	@Test
+	public void testThirtyOne() {
+		assertEquals(makeList(31), PrimeFactors.generate(31));
+	}
+	
 }
