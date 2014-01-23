@@ -41,7 +41,6 @@ public class PrimeFactors {
 			// smaller value already, before we incremented the base. So, 
 			// there is no value in doing it again. :)
 			while( number%base == 0) {
-				// System.out.println("Number = " + number + ", Base =" + base);
 				primes.add(base);
 				number = number / base;
 			}
