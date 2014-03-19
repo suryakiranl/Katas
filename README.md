@@ -1,4 +1,4 @@
 Katas
 =====
 
-Code for multiple katas
+Code for Coin changer and Harry Potter katas
