@@ -31,6 +31,7 @@ public class RoverKata {
 				case 'b': rover.moveBackwards(); break;
 				case 'l': rover.turnLeft(); break;
 				case 'r': rover.turnRight(); break;
+				default: throw new RuntimeException("Oops, you gave a wrong command boss!!");
 			}
 		}
 		
