@@ -49,16 +49,8 @@ public class Position {
 		return XPos;
 	}
 
-	public void setXPos(int xPos) {
-		XPos = xPos;
-	}
-
 	public int getYPos() {
 		return YPos;
-	}
-
-	public void setYPos(int yPos) {
-		YPos = yPos;
 	}
 
 	public GridSize getGridSize() {
