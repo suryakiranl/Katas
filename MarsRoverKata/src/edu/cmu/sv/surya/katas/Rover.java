@@ -1,10 +1,8 @@
 package edu.cmu.sv.surya.katas;
 
-public class Rover {
-	public static enum Direction {
-		EAST, WEST, NORTH, SOUTH
-	}
+import edu.cmu.sv.surya.katas.Grid.Direction;
 
+public class Rover {
 	private Position currentPosition;
 	private Direction direction;
 
