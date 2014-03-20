@@ -32,8 +32,29 @@ public class RoverKataTest {
 
 	}
 	
+	@Test(expected=RuntimeException.class)
+	public void testNegativeValuesInInitialPosition() {
+		Position initialPosition = new Position(-1, -1);
+		Direction initialDirection = Direction.EAST;
+		grid.placeRoverOnGrid(initialPosition, initialDirection);
+	}
+	
+	@Test(expected=RuntimeException.class)
+	public void testOverflowValuesInInitialPosition() {
+		Position initialPosition = new Position(101, 101);
+		Direction initialDirection = Direction.EAST;
+		grid.placeRoverOnGrid(initialPosition, initialDirection);
+	}
+	
 	@Test
-	public void test1() {
+	public void testInitialState() {
+		assertEquals(grid.getRover().getPosition().getXPos(), 0);
+		assertEquals(grid.getRover().getPosition().getYPos(), 0);
+		assertEquals(grid.getRover().getDirection(), Direction.EAST);
+	}
+	
+	@Test
+	public void testOneStepForward() {
 		String navigation = "f";
 		grid.traverse(navigation);
 		assertEquals(grid.getRover().getPosition().getXPos(), 0);
@@ -42,7 +63,7 @@ public class RoverKataTest {
 	}
 	
 	@Test
-	public void test2() {
+	public void testTwoStepsForward() {
 		String navigation = "ff";
 		grid.traverse(navigation);
 		assertEquals(grid.getRover().getPosition().getXPos(), 0);
@@ -51,7 +72,7 @@ public class RoverKataTest {
 	}
 	
 	@Test
-	public void test3() {
+	public void testOneStepBackward() {
 		String navigation = "b";
 		grid.traverse(navigation);
 		assertEquals(grid.getRover().getPosition().getXPos(), 0);
@@ -60,7 +81,7 @@ public class RoverKataTest {
 	}
 	
 	@Test
-	public void test4() {
+	public void testTwoStepsBackward() {
 		String navigation = "bb";
 		grid.traverse(navigation);
 		assertEquals(grid.getRover().getPosition().getXPos(), 0);
@@ -69,7 +90,7 @@ public class RoverKataTest {
 	}
 	
 	@Test
-	public void test5() {
+	public void testOneStepToAndFro() {
 		String navigation = "fb";
 		grid.traverse(navigation);
 		assertEquals(grid.getRover().getPosition().getXPos(), 0);
@@ -78,7 +99,7 @@ public class RoverKataTest {
 	}
 	
 	@Test
-	public void test6() {
+	public void testTurnRight() {
 		String navigation = "r";
 		grid.traverse(navigation);
 		assertEquals(grid.getRover().getPosition().getXPos(), 0);
@@ -87,7 +108,7 @@ public class RoverKataTest {
 	}
 	
 	@Test
-	public void test7() {
+	public void testTurningRightTwice() {
 		String navigation = "rr";
 		grid.traverse(navigation);
 		assertEquals(grid.getRover().getPosition().getXPos(), 0);
@@ -96,7 +117,7 @@ public class RoverKataTest {
 	}
 	
 	@Test
-	public void test8() {
+	public void testTurningLeft() {
 		String navigation = "l";
 		grid.traverse(navigation);
 		assertEquals(grid.getRover().getPosition().getXPos(), 0);
@@ -105,7 +126,7 @@ public class RoverKataTest {
 	}
 	
 	@Test
-	public void test9() {
+	public void testTurningLeftTwice() {
 		String navigation = "ll";
 		grid.traverse(navigation);
 		assertEquals(grid.getRover().getPosition().getXPos(), 0);
@@ -114,7 +135,7 @@ public class RoverKataTest {
 	}
 	
 	@Test
-	public void test10() {
+	public void testTurningLeftAndRight() {
 		String navigation = "lr";
 		grid.traverse(navigation);
 		assertEquals(grid.getRover().getPosition().getXPos(), 0);
@@ -123,18 +144,18 @@ public class RoverKataTest {
 	}
 	
 	@Test(expected=RuntimeException.class)
-	public void test11() {
-		String navigation = "frflblf";
+	public void testRunningIntoObstacle() {
+		String navigation = "frf";
 		grid.traverse(navigation);
 	}
 	
 	@Test
-	public void test12() {
-		String navigation = "ffrff";
+	public void testComplexTravesal() {
+		String navigation = "ffrfflfrffflbbb";
 		grid.traverse(navigation);
-		assertEquals(grid.getRover().getPosition().getXPos(), 2);
-		assertEquals(grid.getRover().getPosition().getYPos(), 2);
-		assertEquals(grid.getRover().getDirection(), Direction.SOUTH);
+		assertEquals(grid.getRover().getPosition().getXPos(), 5);
+		assertEquals(grid.getRover().getPosition().getYPos(), 0);
+		assertEquals(grid.getRover().getDirection(), Direction.EAST);
 	}
 
 }
