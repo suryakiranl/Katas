@@ -58,8 +58,23 @@ public class Position {
 	public int getYPos() {
 		return YPos;
 	}
-
-	public GridSize getGridSize() {
-		return gridSize;
+	
+	@Override
+	public boolean equals(Object pos) {
+		if (pos instanceof Position && XPos == ((Position) pos).getXPos()
+				&& YPos == ((Position) pos).getYPos()) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		hash = hash * 23 + XPos;
+		hash = hash * 23 + YPos;
+		
+		return hash;
 	}
 }
