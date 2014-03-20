@@ -1,6 +1,6 @@
 package edu.cmu.sv.surya.katas;
 
-import edu.cmu.sv.surya.katas.Rover.Direction;
+import edu.cmu.sv.surya.katas.Grid.Direction;
 
 public class RoverKata {
 	public static void main(String[] args) {
