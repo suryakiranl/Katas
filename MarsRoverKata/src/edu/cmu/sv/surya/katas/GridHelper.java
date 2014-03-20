@@ -14,7 +14,7 @@ public class GridHelper {
 
 	public Position getLeftCell(Position currPos) {
 		int yPos = currPos.getYPos() - 1;
-		yPos = (yPos < 0) ? 0 : yPos;
+		yPos = (yPos < 0) ? (gridSize.getMaxY() - 1) : yPos;
 		return new Position(currPos.getXPos(), yPos);
 	}
 
