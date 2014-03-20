@@ -11,6 +11,12 @@ public class Position {
 		YPos = yPos;
 		this.gridSize = gridSize;
 	}
+	
+	public Position(int xPos, int yPos) {
+		super();
+		XPos = xPos;
+		YPos = yPos;
+	}
 
 	public void moveRight() {
 		YPos += 1;
