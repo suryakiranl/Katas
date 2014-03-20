@@ -1,11 +1,11 @@
 package edu.cmu.sv.surya.katas;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.cmu.sv.surya.katas.Rover.Direction;
+import edu.cmu.sv.surya.katas.Grid.Direction;
 
 public class RoverKataTest {
 	Rover rover;
