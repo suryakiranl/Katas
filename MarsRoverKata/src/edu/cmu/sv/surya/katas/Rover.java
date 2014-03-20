@@ -3,58 +3,33 @@ package edu.cmu.sv.surya.katas;
 import edu.cmu.sv.surya.katas.Grid.Direction;
 
 public class Rover {
-	private Position currentPosition;
+	private Position position;
 	private Direction direction;
 
-	public Rover(Position currentPosition, Direction direction) {
+	public Rover(Position position, Direction direction) {
 		super();
-		this.currentPosition = currentPosition;
+		this.position = position;
 		this.direction = direction;
 	}
-	
-	public Position getCurrentPosition() {
-		return currentPosition;
+
+	public void turnLeft() {
+		direction = Direction.get((direction.getCode() + 3) % 4); 
+	}
+
+	public void turnRight() {
+		direction = Direction.get((direction.getCode() + 1) % 4);
+	}
+
+	public void advanceTo(Position newPosition) {
+		this.position = newPosition;
+	}
+
+	public Position getPosition() {
+		return position;
 	}
 
 	public Direction getDirection() {
 		return direction;
 	}
 
-	public void moveForward() {
-		switch(direction) {
-			case EAST: currentPosition.moveRight(); break;
-			case WEST: currentPosition.moveLeft(); break;
-			case NORTH: currentPosition.moveUp(); break;
-			case SOUTH: currentPosition.moveDown(); break;
-		}
-	}
-
-	public void moveBackwards() {
-		switch(direction) {
-			case EAST: currentPosition.moveLeft(); break;
-			case WEST: currentPosition.moveRight(); break;
-			case NORTH: currentPosition.moveDown(); break;
-			case SOUTH: currentPosition.moveUp(); break;
-		}
-	}
-
-	public void turnLeft() {
-		switch(direction) {
-			case EAST: direction = Direction.NORTH; break;
-			case WEST: direction = Direction.SOUTH; break;
-			case NORTH: direction = Direction.WEST; break;
-			case SOUTH: direction = Direction.EAST; break;
-		}
-	}
-
-	public void turnRight() {
-		switch(direction) {
-			case EAST: direction = Direction.SOUTH; break;
-			case WEST: direction = Direction.NORTH; break;
-			case NORTH: direction = Direction.EAST; break;
-			case SOUTH: direction = Direction.WEST; break;
-		}
-	}
-
-	
 }
