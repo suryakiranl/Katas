@@ -25,7 +25,7 @@ public class Grid {
 		}
 		public static Direction get(int code) { 
 		      return lookup.get(code); 
-		 }
+		}
 	}
 
 	private GridSize gridSize;

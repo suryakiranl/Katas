@@ -32,4 +32,8 @@ public class Rover {
 		return direction;
 	}
 
+	@Override
+	public String toString() {
+		return "[Rover: position = " + position + ", direction = " + direction + "]";
+	}
 }
